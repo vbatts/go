@@ -1464,6 +1464,7 @@ prefixof(Link *ctxt, Addr *a)
 		switch(ctxt->headtype) {
 		default:
 			sysfatal("unknown TLS base register for %s", headstr(ctxt->headtype));
+			/* FALLTHRU */
 		case Hdarwin:
 		case Hdragonfly:
 		case Hfreebsd:
@@ -2135,6 +2136,7 @@ mediaop(Link *ctxt, Optab *o, int op, int osize, int z)
 			op = o->op[++z];
 			break;
 		}
+		/* FALLTHRU */
 	default:
 		if(ctxt->andptr == ctxt->and || ctxt->and[ctxt->andptr - ctxt->and - 1] != Pm)
 			*ctxt->andptr++ = Pm;
@@ -2693,6 +2695,7 @@ mfound:
 		default:
 			sysfatal("unknown TLS base location for %s", headstr(ctxt->headtype));
 
+			/* FALLTHRU */
 		case Hlinux:
 		case Hnacl:
 			// ELF TLS base is 0(GS).

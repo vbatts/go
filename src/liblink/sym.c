@@ -148,6 +148,7 @@ linknew(LinkArch *arch)
 		switch(ctxt->arch->thechar) {
 		default:
 			sysfatal("unknown thread-local storage offset for nacl/%s", ctxt->arch->name);
+			/* FALLTHRU */
 		case '6':
 			ctxt->tlsoffset = 0;
 			break;
@@ -168,6 +169,7 @@ linknew(LinkArch *arch)
 		switch(ctxt->arch->thechar) {
 		default:
 			sysfatal("unknown thread-local storage offset for darwin/%s", ctxt->arch->name);
+			/* FALLTHRU */
 		case '6':
 			ctxt->tlsoffset = 0x8a0;
 			break;

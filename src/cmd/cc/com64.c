@@ -262,6 +262,7 @@ com64(Node *n)
 				r->type = types[TLONG];
 			}
 
+			/* FALLTHRU */
 		case OCOND:
 		case ONOT:
 			if(machcap(n))
@@ -298,8 +299,10 @@ com64(Node *n)
 		switch(n->op) {
 		default:
 			diag(n, "unknown vlong %O", n->op);
+			/* FALLTHRU */
 		case OFUNC:
 			n->complex = FNX;
+			/* FALLTHRU */
 		case ORETURN:
 		case OAS:
 		case OIND:

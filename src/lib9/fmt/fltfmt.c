@@ -448,6 +448,7 @@ __efgfmt(Fmt *fmt)
 		 */
 
 		/* fall through to %e */
+		/* FALLTHRU */
 	default:
 	case 'e':
 		/*

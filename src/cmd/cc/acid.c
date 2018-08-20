@@ -174,6 +174,7 @@ acidmember(Type *t, int32 off, int flag)
 			break;
 		}
 
+		/* FALLTHRU */
 	case TINT:
 	case TUINT:
 	case TCHAR:

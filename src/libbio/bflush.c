@@ -50,6 +50,7 @@ Bflush(Biobuf *bp)
 	case Bracteof:
 		bp->state = Bractive;
 
+		/* FALLTHRU */
 	case Bractive:
 		bp->icount = 0;
 		bp->gbuf = bp->ebuf;

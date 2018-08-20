@@ -142,6 +142,7 @@ fmtstrtod(const char *as, char **aas)
 				flag |= Fsign;
 			else
 				flag |= Fesign;
+			/* FALLTHRU */
 		case '+':
 			if(state == S0)
 				state = S1;
@@ -184,6 +185,7 @@ fmtstrtod(const char *as, char **aas)
 				*aas = s+3;
 			goto retnan;
 		}
+		/* FALLTHRU */
 	case S1:
 		if(xcmp(s, "infinity") == 0) {
 			if(aas != nil)
@@ -195,12 +197,14 @@ fmtstrtod(const char *as, char **aas)
 				*aas = s+3;
 			goto retinf;
 		}
+		/* FALLTHRU */
 	case S3:
 		if(aas != nil)
 			*aas = (char*)as;
 		goto ret0;	/* no digits found */
 	case S6:
 		s--;		/* back over +- */
+		/* FALLTHRU */
 	case S5:
 		s--;		/* back over e */
 		break;

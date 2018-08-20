@@ -294,6 +294,7 @@ isstruct(Node *a, Type *t)
 		n = a->left;
 		if(n && n->type && sametype(n->type, t))
 			return 1;
+		/* FALLTHRU */
 	case OSTRING:
 	case OLSTRING:
 	case OCONST:

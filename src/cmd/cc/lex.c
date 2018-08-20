@@ -306,6 +306,7 @@ compile(char *file, char **defs, int ndef)
 		case -1:
 			diag(Z, "fork failed");
 			errorexit();
+			/* FALLTHRU */
 		case 0:
 			close(fd[0]);
 			dup(fd[1], 1);

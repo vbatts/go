@@ -50,6 +50,7 @@ Bseek(Biobuf *bp, vlong offset, int base)
 		bp->icount = 0;
 		bp->gbuf = bp->ebuf;
 
+		/* FALLTHRU */
 	case Bractive:
 		n = offset;
 		if(base == 1) {

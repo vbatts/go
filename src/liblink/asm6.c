@@ -1907,6 +1907,7 @@ prefixof(Link *ctxt, Addr *a)
 		switch(ctxt->headtype) {
 		default:
 			sysfatal("unknown TLS base register for %s", headstr(ctxt->headtype));
+			/* FALLTHRU */
 		case Hdragonfly:
 		case Hfreebsd:
 		case Hlinux:
@@ -1982,6 +1983,7 @@ oclass(Link *ctxt, Addr *a)
 	case D_R15B:
 		if(ctxt->asmode != 64)
 			return Yxxx;
+		/* FALLTHRU */
 	case D_DL:
 	case D_BL:
 	case D_AH:
@@ -2010,6 +2012,7 @@ oclass(Link *ctxt, Addr *a)
 	case D_R15:
 		if(ctxt->asmode != 64)
 			return Yxxx;
+		/* FALLTHRU */
 	case D_SP:
 	case D_BP:
 	case D_SI:
@@ -2155,6 +2158,7 @@ asmidx(Link *ctxt, int scale, int index, int base)
 	case D_R15:
 		if(ctxt->asmode != 64)
 			goto bad;
+		/* FALLTHRU */
 	case D_AX:
 	case D_CX:
 	case D_DX:
@@ -2197,6 +2201,7 @@ bas:
 	case D_R15:
 		if(ctxt->asmode != 64)
 			goto bad;
+		/* FALLTHRU */
 	case D_AX:
 	case D_CX:
 	case D_DX:
@@ -2699,6 +2704,7 @@ mediaop(Link *ctxt, Optab *o, int op, int osize, int z)
 			op = o->op[++z];
 			break;
 		}
+		/* FALLTHRU */
 	default:
 		if(ctxt->andptr == ctxt->and || ctxt->and[ctxt->andptr - ctxt->and - 1] != Pm)
 			*ctxt->andptr++ = Pm;
@@ -3377,6 +3383,7 @@ mfound:
 		default:
 			sysfatal("unknown TLS base location for %s", headstr(ctxt->headtype));
 
+			/* FALLTHRU */
 		case Hplan9:
 			if(ctxt->plan9privates == nil)
 				ctxt->plan9privates = linklookup(ctxt, "_privates", 0);

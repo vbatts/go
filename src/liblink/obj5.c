@@ -382,6 +382,7 @@ addstacksplit(Link *ctxt, LSym *cursym)
 		case ADUFFCOPY:
 			cursym->text->mark &= ~LEAF;
 
+			/* FALLTHRU */
 		case ABCASE:
 		case AB:
 

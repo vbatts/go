@@ -1350,6 +1350,7 @@ buildop(Link *ctxt)
 		default:
 			ctxt->diag("unknown op in build: %A", r);
 			sysfatal("bad code");
+			/* FALLTHRU */
 		case AADD:
 			oprange[AAND] = oprange[r];
 			oprange[AEOR] = oprange[r];
@@ -2615,8 +2616,10 @@ ofsr(Link *ctxt, int a, int r, int32 v, int b, int sc, Prog *p)
 	switch(a) {
 	default:
 		ctxt->diag("bad fst %A", a);
+		/* FALLTHRU */
 	case AMOVD:
 		o |= 1 << 8;
+		/* FALLTHRU */
 	case AMOVF:
 		break;
 	}
